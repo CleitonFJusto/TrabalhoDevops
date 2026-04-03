@@ -26,6 +26,25 @@
         alert('Digite uma versão válida!');
         return;
       }
+       const version = {
+        id: Date.now(),
+        name: value,
+        date: new Date().toLocaleString()
+      };
+
+      versions.push(version);
+      input.value = '';
+      renderVersions();
+    }
+
+    function deleteVersion(id) {
+      versions = versions.filter(v => v.id !== id);
+      renderVersions();
+    }
+
+    function renderVersions() {
+      const list = document.getElementById('versionList');
+      list.innerHTML = '';
     }
       </script>
 </body>
