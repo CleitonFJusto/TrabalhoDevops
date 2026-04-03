@@ -3,9 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+    <title>Controle de versões</title>
 </head>
 <body>
-    <h1>bom dia</h1>
+    <div class="container">
+    <h1>Controle de Versões</h1>
+
+    <input type="text" id="versionInput" placeholder="Digite a versão (ex: v1.0.0)">
+    <button onclick="addVersion()">Adicionar Versão</button>
+
+    <div class="version-list" id="versionList"></div>
+  </div>
+
+  <script>
+    let versions = [];
+
+    function addVersion() {
+      const input = document.getElementById('versionInput');
+      const value = input.value.trim();
+
+      if (value === '') {
+        alert('Digite uma versão válida!');
+        return;
+      }
+       const version = {
+        id: Date.now(),
+        name: value,
+        date: new Date().toLocaleString()
+      };
+
+      versions.push(version);
+      input.value = '';
+      renderVersions();
+    }
+
+    function deleteVersion(id) {
+      versions = versions.filter(v => v.id !== id);
+      renderVersions();
+    }
+
+    function renderVersions() {
+      const list = document.getElementById('versionList');
+      list.innerHTML = '';
+    }
+      </script>
 </body>
 </html>
