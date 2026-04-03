@@ -45,6 +45,21 @@
     function renderVersions() {
       const list = document.getElementById('versionList');
       list.innerHTML = '';
+      
+      versions.forEach(v => {
+        const div = document.createElement('div');
+        div.className = 'version-item';
+
+        div.innerHTML = `
+          <div>
+            <strong>${v.name}</strong><br>
+            <small>${v.date}</small>
+          </div>
+          <button class="delete-btn" onclick="deleteVersion(${v.id})">X</button>
+        `;
+
+        list.appendChild(div);
+      });
     }
       </script>
 </body>
