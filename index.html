@@ -1,12 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Controle de versões</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle de Versões</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 400px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      background-color: #555;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #333;
+    }
+
+    .version-list {
+      margin-top: 20px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .version-item {
+      background: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .delete-btn {
+      background-color: #999;
+      padding: 5px 8px;
+      font-size: 12px;
+    }
+
+    .delete-btn:hover {
+      background-color: #777;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
+  <div class="container">
     <h1>Controle de Versões</h1>
 
     <input type="text" id="versionInput" placeholder="Digite a versão (ex: v1.0.0)">
@@ -26,7 +100,8 @@
         alert('Digite uma versão válida!');
         return;
       }
-       const version = {
+
+      const version = {
         id: Date.now(),
         name: value,
         date: new Date().toLocaleString()
@@ -45,7 +120,7 @@
     function renderVersions() {
       const list = document.getElementById('versionList');
       list.innerHTML = '';
-      
+
       versions.forEach(v => {
         const div = document.createElement('div');
         div.className = 'version-item';
@@ -61,6 +136,6 @@
         list.appendChild(div);
       });
     }
-      </script>
+  </script>
 </body>
 </html>
